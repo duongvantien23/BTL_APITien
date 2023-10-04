@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+}
+/* Định dạng app-sidebar */
+.app-sidebar {
+    display: flex; /* Hiển thị các phần tử con theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    width: 200px;
+    background-color: #006699;
+    color: #fff;
+    flex-direction: column; /* Hiển thị các phần tử con dọc theo chiều dọc */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+  
+  /* Định dạng app-sidebar__user */
+  .app-sidebar__user {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #006699;
+    width: 100%;
+  }
+  
+  .app-user-avatar {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .app-user-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .app-user-designation {
+    font-size: 14px;
+    margin: 0;
+  }
+ 
+.container {
+    display: flex;
+    height: 90vh; /* Chiều cao 100% của màn hình */
+  }
+.app-menu{
+    background-color: #006699;
+    width: 100%;
+}
+.app-menu li a{
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-left: -30px;
+}
+.app-menu li a:hover{
+    background-color: #c6defd;
+    color: #333;
+    transition: 0.3s;
+}
+.active{
+  background-color: #c6defd;
+  color: #333;
+}
+.app-menu li {
+    list-style: none;
+    padding: 20px 0;
+}
+.app-sidebar {
+    width: 300px;
+    background-color: #006699;
+    color: #fff;
+  }
+  hr.line-hr {
+    width: 100%;
+    height: 2px; /* Đặt chiều cao cho hr */
+    background-color: white; /* Đặt màu nền cho hr */
+    border: none; /* Loại bỏ đường viền */
+  }
+  .app-line-out {
+    width: 100%; /* Đặt chiều rộng cho app-line-out */
+    background-color: #006699;
+    height: 80px;
+    margin-top: -20px;
+    position: fixed; /* Đặt vị trí cố định */
+    top: 0; 
+    left: 0; 
+  }
+  .info-container {
+    display: grid;
+    margin-left: 380px;
+    margin-top: 150px;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 200px 200px; 
+    gap: 10px; /* Khoảng cách giữa các ô */
+}
+
+.icon-info {
+    background-color: #f2f2f2;
+    border: 1px solid #E8E8E8;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 5px;
+    border-radius: 5px;
+}
+.icon1{
+background-color: #b1ffcb;
+padding: 20px;
+color: green;
+border-radius: 5px;
+}
+.icon2{
+background-color: #88b8ff;
+padding: 20px;
+color: rgb(9, 9, 189);
+border-radius: 5px;
+}
+.icon3{
+background-color: #ffc0a3;
+padding: 20px;
+color: rgb(255, 168, 7);
+border-radius: 5px;
+}
+.icon4{
+background-color: #FF6A6A;
+padding: 20px;
+color: red;
+border-radius: 10px;
+}
+.info p{
+  font-size: 12px;
+}
+/* CSS cho biểu đồ */
+.chart {
+  width: 800px;
+  height: 450px;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  margin-top: 180px;
+  margin-right: 60px;
+  border-radius: 5px;
+  margin-left: 80px;
+}
+
+.line {
+  fill: none;
+  stroke: #3498db;
+  stroke-width: 2;
+}
+.month-label {
+  font-size: 12px;
+  text-anchor: middle; /* Canh giữa theo chiều ngang */
+}
+@media (max-width: 768px) {
+  .chart {
+    width: 100%; /* Đặt chiều rộng 100% để nó chạy hết chiều rộng của container cha */
+    margin: 20px auto; /* Đặt khoảng cách trên và dưới để căn giữa */
+  }
+}

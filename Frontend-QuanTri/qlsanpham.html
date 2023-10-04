@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/quanly.css">
+    <link rel="stylesheet" href="fontawesome-free-6.3.0-web/css/all.css">
+    <title>Quản lý sản phẩm</title>
+</head>
+<body onload="time()" class="app sidebar-mini rtl">
+    <div class="container">
+        <div class="app-line-out"></div>
+<div class="app-sidebar">
+  <div class="app-sidebar__user">
+    <img class="app-user-avatar" style="width: 15px; height: 15px;" src="/Img/logoavatar.jpg.jpg" alt="User Image">
+    <div>
+      <p class="app-user-name"><b>Dương Văn Tiến</b></p>
+      <p class="app-user-designation">Chào mừng bạn trở lại</p>
+    </div>
+  </div>
+  <ul class="app-menu">
+    <li>
+      <a class="app-menu_item" href="index.html">
+        <i class=''></i>
+        <span class="app-menu_label">Tổng Quan Chi Tiết</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu__item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản Lý Danh Mục</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="#">
+        <i class=''></i>
+        <span class="app-menu_label">Quản Lý Khách Hàng</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item active" href="">
+        <i class=''></i>
+        <span class="app-menu_label active">Quản Lý Sản Phẩm</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản lý Đơn Hàng</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản lý Tin Tức</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản Lý Nhà Cung Cấp</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Báo Cáo Doanh Thu</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="#">
+        <i class=''></i>
+        <span class="app-menu_label">Cài Đặt Hệ Thống</span>
+      </a>
+    </li>
+    <li>
+        <a class="app-menu_item" href="#">
+          <i class='fa-solid fa-arrow-right-from-bracket'></i>
+          <span class="app-menu_label">Đăng xuất</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div class="app-title">
+    <ul class="app-header-title">
+        <li class="header-title-item header-common "><b>Danh sách sản phẩm</b></li>
+     </ul>
+     <div id="clock" class="header-common"></div>
+</div>
+<div class="row-element-button">
+  <div class="row-button">
+    <div class="button-elemet">
+      <a href="" type="button" class="button-create" title="Tạo mới"><i class="fa-solid fa-plus"></i> Tạo mới sản phẩm</a>
+    </div>
+  </div>
+  <div class="row-search-element">
+    <label for="">Tìm kiếm:</label>
+    <input type="search" class="from-control-search">
+  </div>
+</div>
+<div class="product-right">
+  <form action="">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tên sản phẩm</th>
+          <th>Ảnh sản phẩm</th>
+          <th>Giá</th>
+          <th>Danh mục</th>
+          <th>Chức năng</th>
+          <th>Chọn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td>Nho Xanh Sweet Globe Úc RJN</td>
+          <td><img width="70px" src="Img/H8vinffood-nho-xanh-uc-rjn-02_5d291811b8d2470ca21359e5ce3951db_large.webp" alt=""></td>
+          <td>310,000<sup>đ</sup></td>
+          <td>Thực phẩm</td>
+          <td>
+            <span class="edit-icon" onclick="editProduct(1)">✎</span>
+            <span class="delete-icon" onclick="deleteProduct(1)"><i class="fa-solid fa-trash"></i></span>
+          </td>
+          <td><input type="checkbox" name="productCheckbox" value="01"></td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td>Cá lịch khô rim tỏi ớt</td>
+          <td><img width="70px" src="Img/VM11vinffood-ca-lich-rim-03_76b2ae7b3e1c4403b0cf64df7f83eae7_large.jpg" alt=""></td>
+          <td>70,000<sup>đ</sup></td>
+          <td>Thực phẩm</td>
+          <td>
+            <span class="edit-icon" onclick="editProduct(2)">✎</span>
+            <span class="delete-icon" onclick="deleteProduct(2)"><i class="fa-solid fa-trash"></i></span>
+          </td>
+          <td><input type="checkbox" name="productCheckbox" value="02"></td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td>Mì dinh dưỡng ăn liền Mug Nissin cho bé</td>
+          <td><img width="70px" src="Img/mug1_1ea7f5131321419f95deca2024d7efac_1024x1024.webp" alt=""></td>
+          <td>89,000<sup>đ</sup></td>
+          <td>Thực phẩm</td>
+          <td>
+            <span class="edit-icon" onclick="editProduct(3)">✎</span>
+            <span class="delete-icon" onclick="deleteProduct(3)"><i class="fa-solid fa-trash"></i></span>
+          </td>
+          <td><input type="checkbox" name="productCheckbox" value="03"></td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td>Táo Hữu Cơ Juliet Pháp</td>
+          <td><img width="70px" src="Img/H11vinffood-tao-juliet-02_3c9425f39a564005b9319cf316e64e4c_large.jpg" alt=""></td>
+          <td>120,000<sup>đ</sup></td>
+          <td>Thực phẩm</td>
+          <td>
+            <span class="edit-icon" onclick="editProduct(4)">✎</span>
+            <span class="delete-icon" onclick="deleteProduct(4)"><i class="fa-solid fa-trash"></i></span>
+          </td>
+          <td><input type="checkbox" name="productCheckbox" value="04"></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+
+    </div>
+    <script>
+            function time() {
+      var today = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Chủ Nhật";
+      weekday[1] = "Thứ Hai";
+      weekday[2] = "Thứ Ba";
+      weekday[3] = "Thứ Tư";
+      weekday[4] = "Thứ Năm";
+      weekday[5] = "Thứ Sáu";
+      weekday[6] = "Thứ Bảy";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      nowTime = h + " giờ " + m + " phút " + s + " giây";
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+      tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+        '</span>';
+      document.getElementById("clock").innerHTML = tmp;
+      clocktime = setTimeout("time()", "1000", "Javascript");
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    }
+    </script>
+</body>
+</html>

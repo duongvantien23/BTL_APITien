@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="fontawesome-free-6.3.0-web/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    
+    <title>Trang Admin</title>
+</head>
+<body >
+  <div class="container">
+        <div class="app-line-out"></div>
+<div class="app-sidebar">
+  <div class="app-sidebar__user">
+    <img class="app-user-avatar" style="width: 60px; height: 60px;" src="/Img/logoavatar.jpg.jpg" width="50px" alt="User Image">
+    <div>
+      <p class="app-user-name"><b>Dương Văn Tiến</b></p>
+      <p class="app-user-designation">Chào mừng bạn trở lại</p>
+    </div>
+  </div>
+  <hr class="line-hr">
+  <ul class="app-menu">
+    <li>
+      <a class="app-menu_item active" href="index.html">
+        <i class=''></i>
+        <span class="app-menu_label active">Tổng Quan Chi Tiết</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu__item active" href="">
+        <i class=''></i>
+        <span class="app-menu_label active">Quản Lý Danh Mục</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="#">
+        <i class=''></i>
+        <span class="app-menu_label">Quản Lý Khách Hàng</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản Lý Sản Phẩm</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản lý Đơn Hàng</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản lý Tin Tức</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Quản Lý Nhà Cung Cấp</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="">
+        <i class=''></i>
+        <span class="app-menu_label">Báo Cáo Doanh Thu</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu_item" href="#">
+        <i class=''></i>
+        <span class="app-menu_label">Cài Đặt Hệ Thống</span>
+      </a>
+    </li>
+    <li>
+        <a class="app-menu_item" href="#">
+          <i class='fa-solid fa-arrow-right-from-bracket'></i>
+          <span class="app-menu_label">Đăng xuất</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div class="info-container">
+  <div class="icon-info"><i class="fa-solid fa-user icon1"></i>
+    <div class="info info1">
+      <h4>Tổng khách hàng</h4>
+      <p><b>56 khách hàng</b></p>
+      <p class="info-tong">Tổng số khách hàng được quản lý.</p>
+  </div>
+  </div>
+  <div class="icon-info"><i class="fa-solid fa-bag-shopping icon2"></i>
+    <div class="info info2">
+      <h4>Tổng sản phẩm</h4>
+      <p><b>1850 sản phẩm</b></p>
+      <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
+  </div>
+  </div>
+    <div class="icon-info"><i class="fa-solid fa-cart-shopping icon3"></i>
+      <div class="info info3">
+        <h4>Tổng đơn hàng</h4>
+        <p><b>247 đơn hàng</b></p>
+        <p class="info-tong">Tổng số hóa đơn bán hàng trong tháng.</p>
+    </div>
+    </div>
+    <div class="icon-info"><i class="fa-solid fa-exclamation icon4"></i>
+      <div class="info info4">
+        <h4>Sắp hết hàng</h4>
+        <p><b>4 sản phẩm</b></p>
+        <p class="info-tong">Số sản phẩm cảnh báo hết cần nhập thêm.</p>
+    </div>
+    </div>
+        </div>
+    <svg class="chart">
+      <text x="50" y="30" font-size="20" font-weight="bold">Biểu đồ tăng trưởng tháng 9</text>
+        <path class="line" d="M50,100 L100,200 L150,150 L200,250 L250,200 L300,300 L350,350"></path>
+        <!-- Thêm các nhãn tháng -->
+        <text x="50" y="380" class="month-label">Tháng 3</text>
+        <text x="100" y="380" class="month-label">Tháng 4</text>
+        <text x="150" y="380" class="month-label">Tháng 5</text>
+        <text x="200" y="380" class="month-label">Tháng 6</text>
+        <text x="250" y="380" class="month-label">Tháng 7</text>
+        <text x="300" y="380" class="month-label">Tháng 8</text>
+        <text x="350" y="380" class="month-label">Tháng 9</text>
+    </svg>
+    </div>
+<script>
+  const path = document.querySelector('.line');
+  const months = document.querySelectorAll('.month-label');
+  const points = [
+    { x: 50, y: 100 },
+    { x: 100, y: 200 },
+    { x: 150, y: 150 },
+    { x: 200, y: 250 },
+    { x: 250, y: 200 },
+    { x: 300, y: 300 },
+    { x: 350, y: 350 },
+  ];
+
+  function drawLine() {
+    const d = points.map((point, index) => {
+      const command = index === 0 ? 'M' : 'L';
+      return `${command}${point.x},${point.y}`;
+    }).join(' ');
+
+    path.setAttribute('d', d);
+  }
+
+  function animateLine() {
+    const pathLength = path.getTotalLength();
+    path.style.strokeDasharray = pathLength;
+    path.style.strokeDashoffset = pathLength;
+
+    path.getBoundingClientRect(); // Kích hoạt reflow để khắc phục vấn đề hiển thị ban đầu
+
+    path.style.transition = 'stroke-dashoffset 3s ease-in-out';
+    path.style.strokeDashoffset = '0';
+  }
+
+  // Gọi hàm để vẽ và chạy biểu đồ
+  drawLine();
+  animateLine();
+</script>
+</body>
+</html>

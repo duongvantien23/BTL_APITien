@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+}
+.header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: #006699;
+}
+.name{
+    text-align: center;
+    color: #fff;
+}
+
+.logout{
+    display: flex;
+    font-size: 13px;
+    padding-top: 10px;
+    color: #fff;
+    margin-left: 20px;
+}
+
+.title{
+    width: 78%;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    
+}
+.icon-out-right{
+    color: #fff;
+}
+.content{
+    margin-top: 1px;
+    display: flex;
+    border-top: solid 3px #006699;
+}
+
+.menu-left{
+    width: 20%;
+    color: #fff;
+    background-color: #006699;
+    height: 780px;
+}
+
+.menu-left a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.menu-left ul li {
+    list-style: none;
+}
+
+.menu-left a {
+    text-decoration: none;
+}
+
+.home>li,.home-banhang>li,.home-nhaphang>li,.home-danhmuc>li{
+    background-color: #006699;
+    height: 80px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.banhang-list,.nhaphang-list
+,.danhmuc-list{
+    background-color: #006699;
+}
+.menu-left li a:hover{
+    background-color: #c6defd;
+    color: #333;
+    transition: 0.3s;
+}
+.menu-left li a{
+    padding: 15px;
+    border-radius: 20px;
+}
+ul.home{
+    padding: 0;
+}
+.active{
+    background-color: #c6defd;
+    color: #333;
+  }
+.app-title {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: space-between; /* Cách đều hai phần tử trong app-title */
+    margin-top: 10px;
+}
+.menu-right{
+    margin-left: 50px;
+    padding: 10px;
+}
+.app-title {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border: 1px solid #C1CDCD;
+    border-left: 5px solid #006699;
+    border-radius: 5px;
+}
+.app-header-title {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Hiển thị các phần tử con theo chiều ngang */
+}
+
+.header-title-item {
+    font-weight: 600;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    margin-right: 20px; /* Khoảng cách giữa "Danh sách sản phẩm" và "clock" */
+}
+
+#clock {
+    font-weight: 600;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    margin-left: 600px;
+}
+.row-element-button{
+  width: 100%;
+}
+.row-button{
+  margin-top: 30px ;
+  padding: 18px;
+  width: 75%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #C1CDCD;
+  border-radius: 5px;
+}
+.button-elemet a{
+  text-decoration: none;
+  color:#FFF;
+  font-size: 13px;
+  padding: 10px;
+  background-color: rgba(4, 207, 4, 0.937);
+  border-radius: 20px;
+}
+.row-search-element {
+  margin-top: 20px;
+  padding: 10px;
+  margin-right: -50px;
+  float: right;
+  margin-bottom: 30px;
+  border: 1px solid #C1CDCD;
+  border-radius: 5px;
+}
+.row-search-element input{
+ background-color: rgb(235, 235, 235);
+ outline: none;
+ border-radius: 5px;
+ border: 1px solid rgb(207, 206, 206);
+}
+.product-right-element{
+  margin-top: 50px;
+}
+    /* Định dạng bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+    
+    /* Định dạng tiêu đề cột */
+    th {
+      background-color: #f2f2f2;
+      text-align: left;
+      padding: 8px;
+      font-weight: bold;
+      border: 1px solid #ddd;
+    }
+    
+    /* Định dạng dòng chẵn */
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    /* Định dạng dòng lẻ */
+    tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+    
+    /* Định dạng ô trong bảng */
+    td {
+      padding: 30px;
+      border: 1px solid #ddd;
+    }
+    
+    /* Định dạng ảnh sản phẩm */
+    td img {
+      max-width: 100px;
+      height: auto;
+    }
+    
+    /* Định dạng checkbox */
+    td input[type="checkbox"] {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    
+    /* Định dạng biểu tượng sửa và xóa */
+    .edit-icon,
+    .delete-icon {
+      cursor: pointer;
+      margin: 0 5px;
+      font-size: 18px;
+    }
+    
+    .edit-icon:hover,
+    .delete-icon:hover {
+      color: red;
+    }
+    /* Phân trang */
+.pagination {
+    text-align: end;
+    margin-top: 30px;
+    margin-right: -30px;
+}
+
+.pagination a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+    border-radius: 20px;
+}
+
+.pagination a:hover {
+    background-color: #006699;
+    color: #fff;
+}
