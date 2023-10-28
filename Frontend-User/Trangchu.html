@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/Trangchu.css">
+    <link rel="stylesheet" href="fontawesome-free-6.3.0-web/css/all.css">
+    <title>Trang chủ</title>
+</head>
+<body>
+    <div class="Main">
+        <header class="header">
+            <a href="" class="logo">
+                <img src="Img/logo.png" alt="">
+            </a>
+            <ul class="nav">
+                <li><a class="item--home" href="#">Trang chủ</a></li>
+                <li>
+                  <a class="item" href="Gioithieu.html">Giới thiệu</a>
+                <li><a class="item" href="#">Sản Phẩm <i class="fa-solid fa-caret-down"></i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="SPTraiCay.html">Trái cây <i class="fa-solid fa-caret-right"></i></a>
+                            <ul class="sub-menu box-menu">
+                                <li><a href="TraiCayNK.html">Trái cây nhập khẩu</a></li>
+                                <li><a href="TraiCayHC.html">Trái cây hữu cơ</a></li>
+                            </ul>
+                         </li>
+                         <li><a href="RauCuQua.html">Rau - Củ sạch</a></li>
+                         <li><a href="Gao.html">Gạo</a></li>
+                         <li><a href="ThitvaHaiSan.html">Các Loại Thịt & Hải Sản <i class="fa-solid fa-caret-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Thịt Heo MeatDeli</a></li>
+                                <li><a href="#">Thịt Gà CP</a></li>
+                                <li><a href="#">Thịt Heo CP</a></li>
+                                <li><a href="#">Bò Tơ Tây Ninh</a></li>
+                                <li><a href="#">Hải Sản</a></li>
+                            </ul>
+                        </li>
+                         <li><a href="DacSanVungMien.html">Đặc sản vùng miền</a></li>
+                         <li><a href="Hangxachtay.html">Hàng xách tay Mỹ - Nhật - Hàn</a></li>
+                      </ul>
+                </li>
+                <li><a class="item" href="Tintuc.html">Tin Tức</a></li>
+             </ul>
+             <!-- icon---MENU -->
+             <div class="icons">
+                <div class="fa-solid fa-magnifying-glass" id="icon-seach">
+                    <div class="search-form">
+                        <input type="search" id="search-box" placeholder="Tìm kiếm...">
+                        <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+                        <ul id="myUL">
+                            <li><a href="ba-roi-rut-suon.html">Ba Rọi Rút Sườn CP 500g</a></li>
+                            <li><a href="#">Bò tơ Tây Ninh - Thăn Bò</a></li>
+                            <li><a href="#">Bơ 034 Đak Lak</a></li>
+                            <li><a href="#">Cam Vàng Mỹ</a></li>
+                            <li><a href="#">Dâu Hàn Quốc Eloasis 250g</a></li>
+                            <li><a href="#">Cải ngọt</a></li>
+                            <li><a href="#">Mì dinh dưỡng ăn liền Mug Nissin cho bé</a></li>
+                            <li><a href="#">Tảo vàng Spirulina EX Nhật Bản</a></li>
+                            <li><a href="#">Cá Chim Trắng Lagi Bình Thuận</a></li>
+                            <li><a href="#">Đùi tỏi tươi CP 500g</a></li>
+                            <li><a href="#">Mực nang Lagi Bình Thuận</a></li>
+                            <li><a href="#">Gạo Đài Thơm 8</a></li>
+                          </ul>
+                    </div>
+                </div>
+                <div class="fa-solid fa-user-plus" id="icon-user">
+                    <div class="user-form">
+                        <div class="login-box"><a href="Dangnhap.html" class="button-gradient">Đăng nhập</a></div>
+                        <div class="login-register"><a href="Dangky.html">Đăng ký</a></div>                 
+                    </div>
+                </div>
+                <div class="fa-solid fa-basket-shopping" id="icon-btn">
+                    <!-- <div class="icon-shopping--no-cart">
+                        <p>Không có sản phẩm nào trong giỏ hàng</p>
+                    </div> -->
+                    <div class="add-cart">
+                       
+                         <!-- <div class="price-total">
+                            <p>Tổng tiền: <span>105,000₫</span></p>
+                        </div> 
+                        <div class="item-cart">
+                            <div class="img-cart">
+                                <img src="Img/ba-roi-300.webp" alt="">
+                            </div>
+                            <p class="name-item">Ba Rọi Rút Sườn CP 500g</p>
+                            <div class="price">
+                                <span class="price-item">5000000 </span>
+                            </div>
+                            <input style="width: 10%;outline: none;" type="number" class="so-luong" value="1" min="1">
+                            <div class="cofirm"><i class="fa-solid fa-trash"></i></div>
+                        </div>  -->
+                        <div style="margin-top: 5px;" class="total-price-cart"><a href="Thanhtoan.html">Tiến hành thanh toán</a></div>
+                        <div class="totalCart">
+                            Tổng tiền : <strong>0</strong><sup>đ</sup>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        <!-- ---------------------------------------------------------------------------------- -->
+        </header>
+        <div class="container">
+            <section class="slider">
+                <img src="Img/slider_1.webp" alt="">
+                <div id="wp-products">
+                    <ul id="list-products">
+                        
+                        <div style="background-image: url(//theme.hstatic.net/200000332199/1000706721/14/col_1.png?v=222);background-color: #59cca6;background-size: 50% auto;background-repeat: no-repeat;background-position: right center;" class="item item2">
+            
+                            <div style="margin: 50px 30px 30px 70px;" class="name"><a href="RauCuQua.html">Trái Cây - Rau củ</a></div><br>
+                            <div class="mota"><p>
+                                Vinffood cam kết mang đến tay khách hàng những nông sản rau, củ, quả tươi ngon, có nguồn gốc, xuất xứ rõ ràng, đảm bảo an toàn thực phẩm, đạt chuẩn thực phẩm sạch - vì sức khỏe mọi nhà
+                            </p></div><br>
+                            <a style="color: #FFF;text-decoration: none;" href="RauCuQua.html" id="btn_xem" title="Trái cây &amp; Rau củ">Xem ngay</a>
+                        </div>
+                            <div style="background-image: url(//theme.hstatic.net/200000332199/1000706721/14/col_2.png?v=222);background-color: #91ad41;background-size: 50% auto;background-repeat: no-repeat;background-position: right center;" class="item item3">
+            
+                                <div style="margin: 50px 30px 30px 70px;" class="name"><a href="ThitvaHaiSan.html">Các loại thịt & Hải sản</a></div><br>
+                                <div class="mota"><p>
+						           Vinffood tự hào là đơn vị cung cấp các loại thịt tươi, ngon từ những nông trại chăn nuôi tự nhiên ở các địa phương cùng nhiều loại hải sản tươi, sống được sơ chế và bảo quản theo quy trình  an toàn thực phẩm.
+                                </p></div><br>
+                                <a style="color: #FFF;text-decoration: none;" href="ThitvaHaiSan.html" id="btn_xem" title="Các loại thịt &amp; hải sản">Xem ngay</a>
+                            </div>
+                            <div style="background-image: url(//theme.hstatic.net/200000332199/1000706721/14/col_3.png?v=222);background-color: #e3b375;background-size: 50% auto;background-repeat: no-repeat;background-position: right center;" class="item item3">
+            
+                                <div style="margin: 50px 30px 30px 70px;" class="name"><a href="DacSanVungMien.html">Đặc sản vùng miền</a></div><br>
+                                <div class="mota"><p>
+                                Vinffood cùng bạn khám phá văn hóa ẩm thực Việt Nam qua những món ăn đặc sản từng vùng, miền được chế biến sở tại, chuẩn hương vị quê hương theo quy trình an toàn thực phẩm.
+                                </p></div><br>
+                                <a style="color: #FFF;text-decoration: none;" href="DacSanVungMien.html" id="btn_xem" title="Đặc sản vùng miền">Xem ngay</a>
+                            </div>
+                            <div style="background-image: url(//theme.hstatic.net/200000332199/1000706721/14/col_4.png?v=222);background-color: #ef7f94;background-size: 50% auto;background-repeat: no-repeat;background-position: right center;" class="item item4">
+            
+                                <div style="margin: 50px 30px 30px 70px;" class="name"><a href="Hangxachtay.html">Hàng xách tay Mỹ-Nhật-Hàn</a></div><br>
+                                <div class="mota"><p>
+                                Chúng tôi cam kết 100% hàng xách tay chính hãng với mong muốn đưa đến tay khách hàng những sản phẩm ngoại nội địa chất lượng chuẩn nhất với giá tốt nhất.<br><br><br>
+                                    <a style="color: #FFF;text-decoration: none;border-radius: 5px;" href="Hangxachtay.html" id="btn_xem" title="Hàng xách tay Mỹ-Nhật-Hàn">Xem ngay</a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </section>
+                      <div class="content">
+                        <div class="content-con">
+                            <h1 title="Về Chúng Tôi">
+                                <span class="text_gradient">VỀ CHÚNG TÔI</span>
+                              </h1>
+                              <h2 style="margin-top: 5px;" class="contenth2"> <img src="Img/bg_title.webp" alt=""></h2>
+                              <p style="text-align: center;margin: 5px 330px 0px 330px;color: #8b8b99;font-size: 16px;">
+                                Vinffood luôn mang trên mình sứ mệnh tạo ra những sản phẩm sạch, ngon, và chất lượng để cung cấp cho người tiêu dùng tại Tp.HCM và phạm vi toàn quốc. 100% sản phẩm của Vinffood đều có nguồn gốc, xuất sứ rõ ràng, được kiểm tra kỹ càng từng công đoạn của quy trình sản xuất và bảo quản trước khi đến tận tay người tiêu dùng. Vinffood tạo ra nhiều kênh phân phối sản phẩm mong muốn khách hàng có thể tiếp cận, mua hàng một cách thuận tiện nhất (mua hàng trực tiếp tại cửa hàng, đặt hàng online giao tận nhà) để phù hợp với kinh tế xã hội hiện nay. Hãy cùng nhau sử dụng thực phẩm sạch "vì sức khoẻ cộng đồng". 
+                            </p>
+                        </div>
+                        <div class="conten-icon">
+                            <div class="icon-small">
+                                  <img src="Img/icon_uti_1.webp" alt="..."><br>
+                                  <h2 style="margin-top: 5px;"><span>Trang trại hữu cơ</span></h2><br>
+                                  <span style="color: #8b8b99;">Không sử dụng thuốc trừ sâu,<br> thuốc diệt cỏ, thuốc kích thích.</span>
+                            </div>
+                            <div class="icon-small">
+                                  <img src="Img/icon_uti_2.webp" alt="..."><br>
+                                  <h2 style="margin-top: 5px;"><span>Thực phẩm sạch</span></h2><br>
+                                  <span style="color: #8b8b99;">Cung cấp 100% thực phẩm <br> sạch đảm bảo an toàn và ngon nhất</span>
+                            </div>
+                            <div class="icon-small">
+                                <img src="Img/icon_uti_3.webp" alt="..."><br>
+                                <h2 style="margin-top: 5px;"><span>An toàn sinh học</span></h2><br>
+                                <span style="color: #8b8b99;">Bảo tồn tài nguyên thiên nhiên và đa dạng sinh học. <br> Bảo vệ sức khỏe an toàn người tiêu dùng</span>
+                          </div>
+                          <div class="icon-small">
+                            <img src="Img/icon_uti_4.webp" alt="..."><br>
+                            <h2 style="margin-top: 5px;"><span>Đa dạng sinh học</span></h2><br>
+                            <span style="color: #8b8b99;">Cung cấp nhiều loại thực phẩm,<br> rau củ các loại cho người tiêu dùng chọn lựa.</span>
+                      </div>
+                         </div>
+                         <div style="margin-top: 350px;" class="product-container">
+                            <h1><a style="margin-top: 100px;" href="" class="text-gradient">DANH MỤC SẢN PHẨM</a></h1>
+                            <h2 class="tittle-head"><img src="Img/bg_title.webp" alt=""></h2>
+                            <ul class="tab">
+                                <li class="tab-item-new active" >Sản phẩm nổi bật</li>
+                                <li class="tab-item-all">Tất cả sản phẩm</li>
+                                <li class="tab-item-sale">Sản phẩm khuyến mãi</li>
+                            </ul>
+                            <div id="new" class="animation">
+                                <ul class="product-vinffood">
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-premium-suon-non_1f3c32335c7448ceb08000ce2fe5fd54_large.png" alt="">
+                                            <h3><a  title="" href="">[PREMIUM] Sườn non</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-ba-roi-rut-suon-cp-300g_6ee64aeb705a4a4595e44871bc503ee9_large.webp" alt="">
+                                            <h3><a  title="" href="ba-roi-rut-suon.html">Ba Rọi Rút Sườn CP 500g</a></h3><br>
+                                            <span class="product_price">105.000</span><span class="kl-product">₫/Khay</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-than-bo-01_e2b302b74c8e4bc4819e7e073e7ccbff_large.jpg" alt="">
+                                            <h3><a  title="" href="">Bò tơ Tây Ninh - Thăn Bò</a></h3><br>
+                                            <span class="product_price">365.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-canh-ga-giua_19d5b48c02cb462e854fe4e05d7fc5f0_large.jpg" alt="">
+                                            <h3><a  title="" href="">Cánh gà giữa CP 500g</a></h3><br>
+                                            <span class="product_price">86.800</span><span class="kl-product">₫/Khay</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/chaca3_29d98a72ea4d4a14b7f845b74937a8bf_large.jpg" alt="">
+                                            <h3><a  title="" href="">Chả cá Quảng Ngãi</a></h3><br>
+                                            <span class="product_price">169.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/cha-muc-1_6ad9954fb42843d6a98be283bf998a28_large.webp" alt="">
+                                            <h3><a  title="" href="">Chả mực vũng tàu</a></h3><br>
+                                            <span class="product_price">260.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-dau-joyfarm-330g-1_4b940abd1a634e368ee043a08459ac8a_large.jpg" alt="">
+                                            <h3><a  title="" href="">Dây Hàn Quốc Joyfarm 330g</a></h3><br>
+                                            <span class="product_price">250.000</span><span class="kl-product">₫/hộp</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                        <img src="Img/vinffood-muc-ong-tuoi-4_79000fee3437431dbc2ef390e5b795ef_large.jpg" alt="">
+                                        <h3><a  title="" href="">Mực Ghim Trứng Lagi Bình Thuận</a></h3><br>
+                                        <span class="product_price">250.000</span><span class="kl-product">₫/Kg</span>
+                                        <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                    </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-muc-ghim-01_51084d314aed45a5b79f54085333f22d_large.jpg" alt="">
+                                            <h3><a  title="" href="">Mực ống Lagi Bình Thuận</a></h3><br>
+                                            <span class="product_price">260.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-nho-autumn-crisp-premium-04_6e011d00cd5b4a57b7814f6eea7bf8b0_large.jpg" alt="">
+                                            <h3><a  title="" href="">Nho Xanh Úc Autumn Crisp </a></h3><br>
+                                            <span class="product_price">290.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-quyt-uc_10e4de117bea4f93b7483a0a701959b3_large.webp" alt="">
+                                            <h3><a  title="" href="">Quýt nhập khẩu Úc</a></h3><br>
+                                            <span class="product_price">140.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-omega-3-orihiro_9a516233302b442b8e823c5a538dae6f_large.png" alt="">
+                                            <h3><a  title="" href="">Viên uống bổ mắt Omega-3</a></h3><br>
+                                            <span class="product_price">95.000</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                </ul>
+                            </div>
+                            <div id="all" class="animation">
+                                <ul class="product-vinffood">
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-ba-roi-heo-dac-biet-meatdeli_2aa99f5c2ad34e10ac79eaba265c477a_large.webp" alt="">
+                                            <h3><a  title="" href="">[PREMIUM] Ba rọi heo Đặc biệt</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-H2xuong-cuc-heo-chuan-ngon-meatdeli_6054d55b236a4befaf76e966e46ec22a_large.webp" alt="">
+                                            <h3><a  title="" href="">Xương cục heo chuẩn ngon</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-H3chan-gio-heo-rut-xuong-meatdeli_0f45bf5c231840dab5a5f3de9a380028_large.webp" alt="">
+                                            <h3><a  title="" href="">Chân giò heo rút xương chuẩn ngon</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-H4premium-mong-gio_055ad6d4efee462fa7150d5c7b6240a5_large.webp" alt="">
+                                            <h3><a  title="" href="">[PREMIUM] Móng Giò</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-thit-vai-meatdeli_21c9b816c4314738b7b9d3e1819fac05_large.webp" alt="">
+                                            <h3><a  title="" href="">Thịt Vai Heo Chuẩn Ngon</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-nac-dam-chuan-ngon_666537efc94647be94337e1c4d7f15eb_large.webp" alt="">
+                                            <h3><a  title="" href="">Nạc dăm heo chuẩn ngon</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-premium-suon-non_1f3c32335c7448ceb08000ce2fe5fd54_large.png" alt="">
+                                            <h3><a  title="" href="">[PREMIUM] Sườn non</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                        <img src="Img/vinffood-bap-gio-cuon-meatdeli_b7705affdaf943d181a7550ae54eeba0_large.webp" alt="">
+                                        <h3><a  title="" href="">[PREMIUM] Bắp Giò Cuộn</a></h3><br>
+                                        <span class="product_price">Liên hệ</span>
+                                        <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                    </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-H5thit-xay-meatdeli_4102fc202a404eeebbc7b5f8e06f4709_large.webp" alt="">
+                                            <h3><a  title="" href="">Thịt Heo Xay</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-ba-roi-rut-suon-cp-300g_6ee64aeb705a4a4595e44871bc503ee9_large.webp" alt="">
+                                            <h3><a  title="" href="">[PREMIUM] Ba Rọi Rút Sườn</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/ba_roi_chuan_H6ngon_b530968ce658487d8ddef8e89a0279e4_large.webp" alt="">
+                                            <h3><a  title="" href="">Ba Rọi Heo Chuẩn Ngon</a></h3><br>
+                                            <span class="product_price">Liên hệ</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-ca-nuc_H8527b782de2124d4c9bfd4a87d4a097ae_large.jpg" alt="">
+                                            <h3><a  title="" href="">Cá Nục Lagi Bình Thuận</a></h3><br>
+                                            <span class="product_price">120.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-ca-thu_H9c3bc3d72779c4aac9ca12331f39e4646_large.webp" alt="">
+                                            <h3><a  title="" href="">Cá Thu Lagi Bình Thuận</a></h3><br>
+                                            <span class="product_price">260.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                        <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-ca-huong_H100ba6f19601a64fe788dc11e713393d55_large.webp" alt="">
+                                            <h3><a  title="" href="">Cá Hường (Cá Đổng)</a></h3><br>
+                                            <span class="product_price">150.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                        <li>
+                                            <div class="product_name">
+                                                <img src="Img/vinffood-ca-bopH11_4c964fa34f384b7481ec245655d37371_large.jpg" alt="">
+                                                <h3><a  title="" href="">Cá Bớp Tươi</a></h3><br>
+                                                <span class="product_price">350.000</span><span class="kl-product">₫/Kg</span>
+                                                <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                            </div></li>
+                                            <li>
+                                                <div class="product_name">
+                                                    <img src="Img/vinffood-muc-ghim-01H12_51084d314aed45a5b79f54085333f22d_large (1).jpg" alt="">
+                                                    <h3><a  title="" href="">Mực Ghim Trứng Lagi Bình Thuận</a></h3><br>
+                                                    <span class="product_price">250.000</span><span class="kl-product">₫/Kg</span>
+                                                    <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                                </div></li>
+                                </ul>
+                            </div>
+                            <div id="sale" class="animation">
+                                <ul class="product-vinffood">
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/saurieng_79c0ba1eb8c149c2bfd6f39cf779ead0_large.webp" alt="">
+                                            <h3><a  title="" href="">Sầu riêng ri 6</a></h3><br>
+                                            <span class="product_price">260.000</span><span class="kl-product">₫/Kg</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                    <li>
+                                        <div class="product_name">
+                                            <img src="Img/vinffood-omega-3-orihiro_9a516233302b442b8e823c5a538dae6f_large.png" alt="">
+                                            <h3><a  title="" href="">Viên uống bổ mắt Omega-3 Orihiro</a></h3><br>
+                                            <span class="product_price">95.000</span><span class="kl-product">₫/hộp</span>
+                                            <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                        </div></li>
+                                </ul>
+                            </div>
+                        </div>
+                             <section class="section_transparent">
+                                <div class="transparent_background-container">
+                                    <div class="text_transparent-center">
+                                        <div class="text_body">
+                                            <h2>Hotline</h2><br>
+                                    <a class="hotline_center" href="tel:0908.606.539">0908.606.539</a><br>
+                                    <p>Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ ràng,<br> sạch, an toàn và đảm bảo chất lượng ngon nhất.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                             </section>
+                             <section class="section_bestsale">
+                                <div class="product-container">
+                                    <h1><a href="" class="text-gradient">SẢN PHẨM BÁN CHẠY</a></h1>
+                                    <h2 class="tittle-head"><img src="Img/bg_title.webp" alt=""></h2>
+                                    <div class="animation">
+                                        <ul class="product-vinffood">
+                                            <li>
+                                                <div class="product_name">
+                                                    <img src="Img/vinffood-premium-suon-non_1f3c32335c7448ceb08000ce2fe5fd54_large.png" alt="">
+                                                    <h3><a  title="" href="">[PREMIUM] Sườn non</a></h3><br>
+                                                    <span class="product_price">Liên hệ</span>
+                                                    <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="product_name">
+                                                    <img src="Img/vinffood-ba-roi-rut-suon-cp-300g_6ee64aeb705a4a4595e44871bc503ee9_large.webp" alt="">
+                                                    <h3><a  title="" href="">Ba Rọi Rút Sườn CP 500g</a></h3><br>
+                                                    <span class="product_price">105.000</span><span class="kl-product">₫/Khay</span>
+                                                    <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                                </div></li>
+                                                <li>
+                                                    <div class="product_name">
+                                                        <img src="Img/vinffood-than-bo-01_e2b302b74c8e4bc4819e7e073e7ccbff_large.jpg" alt="">
+                                                        <h3><a  title="" href="">Bò tơ Tây Ninh - Thăn Bò</a></h3><br>
+                                                        <span class="product_price">365.000</span><span class="kl-product">₫/Kg</span>
+                                                        <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="product_name">
+                                                        <img src="Img/vinffood-canh-ga-giua_19d5b48c02cb462e854fe4e05d7fc5f0_large.jpg" alt="">
+                                                        <h3><a  title="" href="">Cánh gà giữa CP 500g</a></h3><br>
+                                                        <span class="product_price">86.800</span><span class="kl-product">₫/Khay</span>
+                                                        <div><button class="buy-sp">Mua ngay <i class="fa-solid fa-bag-shopping"></i></button></div>
+                                                    </div></li>
+                                                </div>
+                                            </div>
+                             </section>
+                             <section class="section_new_blog">
+                                <div class="new_blog_container">
+                                    <div class="heading_new-blog">
+                                        <h1><a href="Tintuc.html" class="text-gradient">TIN TỨC MỚI NHẤT</a></h1>
+                                        <h2 style="margin-left: 400px;" class="tittle-head"><img src="Img/bg_title.webp" alt=""></h2>
+                                    </div>
+                                    <div class="content_blog-new">
+                                        <div class="blog_new">
+                                            <img src="Img/vinffood-khai-truong_a9b9e57bb94c46d6bd319ab1b2171c5e_large.webp" alt=""><br>
+                                            <div class="date">
+                                                <i class="far fa-calendar"></i>
+                                                <b class="color_main">11/11/2021</b>
+                                                &nbsp; Đăng bởi:
+                                                <b class="color_main">Đình Đỗ</b>
+                                            </div>
+                                        </div>
+                                        <div class="conten_right">
+                                            <h3><a href="">Khai trương cửa hàng tại Vinhomes Grand Park</a></h3>
+                                            <p>Đã chính thức đi vào hoạt động và ổn định Cảm ơn quý khách hàng đã tin tưởng và...</p>
+                                        </div>
+                                    </div>
+                                    <div class="content_blog-new">
+                                        <div class="blog_new">
+                                            <img src="Img/vai-tro-thu-pham-sach_b64f9acf2bdc4cd6860d2846dd2ba840_large.webp" alt=""><br>
+                                            <div class="date">
+                                                <i class="far fa-calendar"></i>
+                                                <b class="color_main">12/05/2021</b>
+                                                &nbsp; Đăng bởi:
+                                                <b class="color_main">Đỗ Đình</b>
+                                            </div>
+                                        </div>
+                                        <div class="conten_right">
+                                            <h3><a href="">Vai trò của thực phẩm sạch đối với đời sống con người</a></h3>
+                                            <p>Trong cuộc sống con người không thể thiếu đi vai trò của các loại thực phẩm, nhất là...</p>
+                                        </div>
+                                    </div>
+                                    <div class="content_blog-new">
+                                        <div class="blog_new">
+                                            <img src="Img/thuc-pham-sach-_ed23cf1338a646e8bc32b8ec74c5fce0_large.jpg" alt=""><br>
+                                            <div class="date">
+                                                <i class="far fa-calendar"></i>
+                                                <b class="color_main">11/05/2021</b>
+                                                &nbsp; Đăng bởi:
+                                                <b class="color_main">Đỗ Đình</b>
+                                            </div>
+                                        </div>
+                                        <div class="conten_right">
+                                            <h3><a href="">Thực phẩm sạch và thực phẩm hữu cơ khác nhau như thế nào ?</a></h3>
+                                            <p>Cuộc sống ngày càng hiện đại, con người ngày càng quan tâm hơn đến chất lượng...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                    </section>
+                                <section class="top_brand">
+                                    <div class="top_brand-app">
+                                        <div class="heading_new-blog">
+                                            <h1 class="heading_top_brand">ĐỐI TÁC</h1>
+                                            <h2 style="margin-left: 400px;" class="tittle-head"><img src="Img/bg_title.webp" alt=""></h2>
+                                        </div>
+                                        <div class="img_top_brand-container">
+                                            <div class="img_top-brand">
+                                                <a href="" class="img-click-top_brand"><img src="Img/brand_1.webp" alt=""></a>
+                                                <a href="" class="img-click-top_brand"><img src="Img/brand_2.png" alt=""></a>
+                                                <a href="" class="img-click-top_brand"><img src="Img/brand_3.png" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                        </div>
+        </div>
+
+        <div class="footer">
+            <div class="claim_sale">
+                <div class="email_heading">
+                    <div class="left_heading">
+                        <h3>Đăng kí nhận tin khuyến mãi</h3>
+                    </div>
+                    <div class="right_heading">
+                        <input type="email" autocomplete="off" class="form-control" value="" placeholder="Nhập email của bạn" name="contact[email]" id="mail">
+                        <span class="input_group-btn">
+                            <button class="button_gradient" name="subscribe" id="subscribe" type="submit">Đăng ký</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="hotline-container">
+                <div class="logo-footer">
+                    <a href="" class="img-logo-footer"><img src="Img/logo.png" alt=""></a>
+                    <ul class="contact-left">
+                        <li>
+                            <span class="contact_footer">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <span style="font-size: 14px;line-height: 32px;" class="text_footer">
+                                Tòa S301 Vinhomes Grand Park, Nguyễn Xiển, Long Thạnh Mỹ, Tp. Thủ Đức
+                            </span>
+                        </li>
+                        <li>
+                            <span class="contact_footer">
+                                <i class="fas fa-mobile-alt"></i>
+                            </span>
+                            <span class="text_footer">
+                                <a href="" class="contact-a">0908.606.539</a>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="contact_footer">
+                                <i class="far fa-envelope"></i>
+                            </span>
+                            <span class="text_footer">
+                                <a href="" class="contact-a">info@vinffood.vn</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="website-footer">
+                    <h4 class="tittle-menu">SƠ ĐỒ WEBSITE</h4>
+                    <ul class="contact-left">
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">TRANG CHỦ</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">GIỚI THIỆU</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">SẢN PHẨM</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">TIN TỨC</a></li>
+                    </ul>
+                </div>
+                <div class="website-footer">
+                    <h4 class="tittle-menu">SẢN PHẨM</h4>
+                    <ul class="contact-left">
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Sản phẩm nổi bật</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Tất cả sản phẩm</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Sản phẩm ưu đãi</a></li>
+                    </ul>
+                </div>
+                <div class="website-footer">
+                    <h4 class="">CHÍNH SÁCH</h4>
+                    <ul class="contact-left">
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Chính sách đổi trả</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Chính sách bảo mật</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyringt">
+                <span>@ Bản quyền thuộc về</span>
+                <b class="color_main">Vinffood</b>
+            </div>
+        </div> 
+    </div>
+    <script src="/Js/Vinfood.js"></script>
+
+<!-- ------------Trở về đầu trang--------------------------- -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</body>
+</html>

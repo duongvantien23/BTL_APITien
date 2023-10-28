@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/Login.css">
+    <link rel="stylesheet" href="fontawesome-free-6.3.0-web/css/all.css">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <div class="Main">
+        <header class="header">
+            <a href="" class="logo">
+                <img src="Img/logo.png" alt="">
+            </a>
+            <ul class="nav">
+                <li><a class="" href="Vinfood.html">Trang chủ</a></li>
+                <li>
+                  <a class="item" href="Gioithieu.html">Giới thiệu</a>
+                <li><a class="item" href="#">Sản Phẩm <i class="fa-solid fa-caret-down"></i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="SPTraiCay.html">Trái cây <i class="fa-solid fa-caret-right"></i></a><hr>
+                            <ul class="sub-menu">
+                                <li><a href="TraiCayNK.html">Trái cây nhập khẩu</a></li><hr>
+                                <li><a href="TraiCayHC.html">Trái cây hữu cơ</a></li>
+                            </ul>
+                         </li>
+                         <li><a href="Gao.html">Rau - Củ sạch</a></li><hr>
+                         <li><a href="Gao.html">Gạo</a></li><hr>
+                         <li><a href="ThitvaHaiSan.html">Các Loại Thịt & Hải Sản <i class="fa-solid fa-caret-right"></i></a><hr>
+                            <ul class="sub-menu">
+                                <li><a href="#">Thịt Heo MeatDeli</a></li><hr>
+                                <li><a href="#">Thịt Gà CP</a></li><hr>
+                                <li><a href="#">Thịt Heo CP</a></li><hr>
+                                <li><a href="#">Bò Tơ Tây Ninh</a></li><hr>
+                                <li><a href="#">Hải Sản</a></li>
+                            </ul>
+                        </li>
+                         <li><a href="#">Đặc sản vùng miền</a></li><hr>
+                         <li><a href="#">Hàng xách tay Mỹ - Nhật - Hàn</a></li>
+                      </ul>
+                </li>
+                <li><a class="item" href="Tintuc.html">Tin Tức</a></li>
+             </ul>
+             <div class="icons">
+                <div class="fa-solid fa-magnifying-glass" id="icon-seach">
+                    <div class="search-form">
+                        <input type="search" id="search-box" placeholder="Tìm kiếm...">
+                        <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+                    </div>
+                </div>
+                <div class="fa-solid fa-user-plus" id="icon-user">
+                    <div class="user-form">
+                        <div class="login-box"><a href="" class="button-gradient">Đăng nhập</a></div>
+                        <div class="login-register"><a href="">Đăng ký</a></div>                 
+                    </div>
+                </div>
+                <div class="fa-solid fa-basket-shopping" id="icon-btn">
+                    <div class="icon-shopping--no-cart">
+                        <p>Không có sản phẩm nào trong giỏ hàng</p>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+        <div class="background-heading">
+            <div class="col_center">
+                <ul class="home-center">
+                    <h2 style="padding: 10px;" class="tittle-head">Tài khoản</h2>
+                    <li>
+                    <a id="home-heading" href="">
+                        <span>Trang chủ</span>
+                    </a>
+                        <span>&nbsp;</span>
+                        <i class="fa fa-angle-right"></i>&nbsp;
+                    <span class="a-tittle">Tài khoản</span>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <h1 class="tittle_login"><span>Tài Khoản</span></h1>
+        <div class="login-container">
+            <div class="profile-contact">
+                <div class="profile-small">
+                    <span>Nếu bạn đã có tài khoản, đăng nhập tại đây.</span>
+                </div>
+                <div class="form-login">
+                    <label>Email: </label><br><br>
+                    <input type="email" class="email-login" placeholder="Email">
+                </div>
+                <div class="form-login">
+                    <label>Mật khẩu: </label><br><br>
+                    <input type="password" class="password-login" onblur="checkinputpass()" placeholder="Mật khẩu">
+                </div>
+                <div class="btn-login">
+                    <input class="input-login" type="button" type="button" onclick="checkEmail()" value="Đăng nhập">
+                    <a class="btn-resgister" href="Dangky.html">Đăng ký</a>
+                </div>
+            </div>
+            <div class="recover-login">
+                <div class="profile-recover">
+                    <span>Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.</span>
+                </div>
+                <div class="form-login">
+                    <label>Email: </label><br><br>
+                    <input type="email" class="email-login" placeholder="Email">
+                </div>
+                <div class="recover-login-click">
+                    <input class="input-login" type="submit" value="Lấy lại mật khẩu">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="claim_sale">
+                <div class="email_heading">
+                    <div class="left_heading">
+                        <h3>Đăng kí nhận tin khuyến mãi</h3>
+                    </div>
+                    <div class="right_heading">
+                        <input type="email" autocomplete="off" class="form-control" value="" placeholder="Nhập email của bạn" name="contact[email]" id="mail">
+                        <span class="input_group-btn">
+                            <button class="button_gradient" name="subscribe" id="subscribe" type="submit">Đăng ký</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="hotline-container">
+                <div class="logo-footer">
+                    <a href="" class="img-logo-footer"><img src="Img/logo.png" alt=""></a>
+                    <ul class="contact-left">
+                        <li>
+                            <span class="contact_footer">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <span style="font-size: 14px;line-height: 32px;" class="text_footer">
+                                Tòa S301 Vinhomes Grand Park, Nguyễn Xiển, Long Thạnh Mỹ, Tp. Thủ Đức
+                            </span>
+                        </li>
+                        <li>
+                            <span class="contact_footer">
+                                <i class="fas fa-mobile-alt"></i>
+                            </span>
+                            <span class="text_footer">
+                                <a href="" class="contact-a">0908.606.539</a>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="contact_footer">
+                                <i class="far fa-envelope"></i>
+                            </span>
+                            <span class="text_footer">
+                                <a href="" class="contact-a">info@vinffood.vn</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="website-footer">
+                    <h4 class="tittle-menu">SƠ ĐỒ WEBSITE</h4>
+                    <ul class="contact-left">
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">TRANG CHỦ</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">GIỚI THIỆU</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">SẢN PHẨM</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">TIN TỨC</a></li>
+                    </ul>
+                </div>
+                <div class="website-footer">
+                    <h4 class="tittle-menu">SẢN PHẨM</h4>
+                    <ul class="contact-left">
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Sản phẩm nổi bật</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Tất cả sản phẩm</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Sản phẩm ưu đãi</a></li>
+                    </ul>
+                </div>
+                <div class="website-footer">
+                    <h4 class="">CHÍNH SÁCH</h4>
+                    <ul class="contact-left">
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Chính sách đổi trả</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Chính sách bảo mật</a></li>
+                        <li class="lsit-menu-footer"><a href="" class="contact-a">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyringt">
+                <span>@ Bản quyền thuộc về</span>
+                <b class="color_main">Vinffood</b>
+            </div>
+        </div> 
+    </div>
+    <script>
+              function checkEmail() { 
+    var emails = document.querySelector('.email-login');
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    
+    if (!filter.test(emails.value)) { 
+             alert('Tài khoản không chính xác.\nExample@gmail.com');
+             email.focus; 
+             return false; 
+    }
+    else{ 
+             confirm('Đăng nhập thành công, chuyển tới trang chủ');
+             window.location.href = "Vinfood.html"   
+    }
+     
+}  
+    </script>
+    <script>
+             function checkinputpass(){
+        var inputPass = document.querySelector(".password-login").value
+        var check = /^[a-zA-Z0-9]+[a-zA-Z0-9@_]+$/
+        if(inputPass=="" || check.test(inputPass)===false){
+            alert("Nhập mật khẩu đủ 8 ký tự bao gồm chữ và ít nhất một số")
+            return
+        }
+        else{
+            return
+        }
+        }
+    </script>
+</body>
+</html>
