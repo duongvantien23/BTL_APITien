@@ -26,6 +26,10 @@ builder.Services.AddTransient<ISanPhamBusiness, SanPhamBusiness>();
 builder.Services.AddTransient<ISanPhamRepository, SanPhamRepository>();
 builder.Services.AddTransient<ITinTucBusiness, TinTucBusiness>();
 builder.Services.AddTransient<ITinTucRepository, TinTucRepository>();
+builder.Services.AddTransient<IOrderBusiness, OrderBusiness>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+builder.Services.AddTransient<IUserBusiness, UserBusiness>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

@@ -30,5 +30,20 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+        public List<TinTucModel> GetTinTucNews()
+        {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_layraTinTucNews");
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<TinTucModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

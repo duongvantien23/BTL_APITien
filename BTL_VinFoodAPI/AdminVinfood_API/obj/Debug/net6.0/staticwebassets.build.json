@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "W1WJFR76t4OxB6ONM8x4Geh7BDuF15bBi/Z5ozLHuHg=",
+  "Source": "AdminVinfood_API",
+  "BasePath": "_content/AdminVinfood_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "AdminVinfood_API\\wwwroot",
+      "Source": "AdminVinfood_API",
+      "ContentRoot": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\",
+      "BasePath": "_content/AdminVinfood_API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\cauvang-1654247842-9403-1654247849.jpg",
+      "SourceId": "AdminVinfood_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\",
+      "BasePath": "_content/AdminVinfood_API",
+      "RelativePath": "images/Product/cauvang-1654247842-9403-1654247849.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Product\\cauvang-1654247842-9403-1654247849.jpg"
+    },
+    {
+      "Identity": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\vinffood-cam-sanh_c71e3a0906ba411d96fc8bad605c5661_large.jpg",
+      "SourceId": "AdminVinfood_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\",
+      "BasePath": "_content/AdminVinfood_API",
+      "RelativePath": "images/Product/vinffood-cam-sanh_c71e3a0906ba411d96fc8bad605c5661_large.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Product\\vinffood-cam-sanh_c71e3a0906ba411d96fc8bad605c5661_large.jpg"
+    },
+    {
+      "Identity": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\vinffood-dau-eloasis-250g_3395e28af0fb4e27a57d66b82e6a1623_large.jpg",
+      "SourceId": "AdminVinfood_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\",
+      "BasePath": "_content/AdminVinfood_API",
+      "RelativePath": "images/Product/vinffood-dau-eloasis-250g_3395e28af0fb4e27a57d66b82e6a1623_large.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Product\\vinffood-dau-eloasis-250g_3395e28af0fb4e27a57d66b82e6a1623_large.jpg"
+    },
+    {
+      "Identity": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\VM12vinffood-ca-nuc_527b782de2124d4c9bfd4a87d4a097ae_large.jpg",
+      "SourceId": "AdminVinfood_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\",
+      "BasePath": "_content/AdminVinfood_API",
+      "RelativePath": "images/Product/VM12vinffood-ca-nuc_527b782de2124d4c9bfd4a87d4a097ae_large.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Product\\VM12vinffood-ca-nuc_527b782de2124d4c9bfd4a87d4a097ae_large.jpg"
+    }
+  ]
+}

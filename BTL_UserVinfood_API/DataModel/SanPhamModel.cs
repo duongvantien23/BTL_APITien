@@ -18,5 +18,7 @@ namespace DataModel
         public string Mota { get; set; }
         public string HinhAnh { get; set; }
         public DateTime NgaySanXuat { get; set; }
+        public int SoLuong { get; set; }
+        public string DonViTinh { get; set; }
     }
 }

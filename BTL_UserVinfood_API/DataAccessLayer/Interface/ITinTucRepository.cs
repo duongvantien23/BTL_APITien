@@ -10,5 +10,6 @@ namespace DataAccessLayer.Interface
     public partial interface ITinTucRepository
     {
         List<TinTucModel> GetAllTinTuc();
+        List<TinTucModel> GetTinTucNews();
     }
 }

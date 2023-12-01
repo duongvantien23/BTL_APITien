@@ -20,5 +20,9 @@ namespace BussinessLayer
         {
             return _res.GetAllTinTuc();
         }
+        public List<TinTucModel> GetTinTucNews()
+        {
+            return _res.GetTinTucNews();
+        }
     }
 }

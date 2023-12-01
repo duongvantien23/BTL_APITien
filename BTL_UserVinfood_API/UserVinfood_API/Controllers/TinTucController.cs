@@ -20,5 +20,11 @@ namespace UserVinfood_API.Controllers
         {
             return _tinTucBusiness.GetAllTinTuc();
         }
+        [Route("tintuc/get-blognews-user")]
+        [HttpGet]
+        public IEnumerable<TinTucModel> GetTinTucNews()
+        {
+            return _tinTucBusiness.GetTinTucNews();
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace BussinessLayer.Interface
     public partial interface ITinTucBusiness
     {
         List<TinTucModel> GetAllTinTuc();
+        List<TinTucModel> GetTinTucNews();
     }
 }

@@ -137,7 +137,7 @@ BEGIN
 END;
 ------------------------------------------------------------------------------------------------
 --Store Proc Sản Phẩm
-Create PROCEDURE sp_create_sanpham
+Alter PROCEDURE sp_create_sanpham
     @MaDanhMuc INT,
     @TenSP NVARCHAR(500),
     @MaNhaCC INT,
@@ -145,14 +145,15 @@ Create PROCEDURE sp_create_sanpham
     @Gia INT,
     @MoTa NVARCHAR(MAX),
     @HinhAnh NVARCHAR(MAX),
-    @NgaySanXuat DATETIME
+    @NgaySanXuat DATETIME,
+	@DonViTinh NVARCHAR(100)
 AS
 BEGIN
-    INSERT INTO SanPhams (MaDanhMuc, TenSP, MaNhaCC, LuotXem, Gia, Mota, HinhAnh, NgaySanXuat)
-    VALUES (@MaDanhMuc, @TenSP, @MaNhaCC, @LuotXem, @Gia, @MoTa, @HinhAnh, @NgaySanXuat);
+    INSERT INTO SanPhams (MaDanhMuc, TenSP, MaNhaCC, LuotXem, Gia, Mota, HinhAnh, NgaySanXuat,DonViTinh)
+    VALUES (@MaDanhMuc, @TenSP, @MaNhaCC, @LuotXem, @Gia, @MoTa, @HinhAnh, @NgaySanXuat,@DonViTinh);
 END
 --Get Id Sản Phẩm
-Create PROCEDURE sp_get_SanPhamByID
+Alter PROCEDURE sp_get_SanPhamByID
 (
     @MaSanPham INT
 )
@@ -167,8 +168,10 @@ BEGIN
         S.MaNhaCC,
         NCC.TenNhaCC, -- Tên nhà cung cấp
         S.TenSP,
+		S.LuotXem,
         S.Gia,
         S.Mota,
+		S.DonViTinh,
         S.HinhAnh,
         S.NgaySanXuat
     FROM SanPhams AS S
@@ -177,7 +180,7 @@ BEGIN
     WHERE S.MaSP = @MaSanPham;
 END;
 --Get All Sản Phẩm
-Create PROCEDURE sp_getall_sanpham
+Alter PROCEDURE sp_getall_sanpham
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -192,12 +195,13 @@ BEGIN
         SP.Gia,
         SP.Mota,
         SP.HinhAnh,
-        SP.NgaySanXuat
+        SP.NgaySanXuat,
+		SP.DonViTinh
     FROM SanPhams SP
     JOIN DanhMucs DM ON SP.MaDanhMuc = DM.MaDanhMuc;
 END;
 --Update Sản Phẩm
-Create PROCEDURE sp_update_sanpham
+Alter PROCEDURE sp_update_sanpham
     @MaSP INT,
     @MaDanhMuc INT,
     @TenSP NVARCHAR(500),
@@ -206,7 +210,8 @@ Create PROCEDURE sp_update_sanpham
     @Gia INT,
     @MoTa NVARCHAR(MAX),
     @HinhAnh NVARCHAR(MAX),
-    @NgaySanXuat DATETIME
+    @NgaySanXuat DATETIME,
+	@DonViTinh NVARCHAR(100)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -221,7 +226,8 @@ BEGIN
         Gia = @Gia,
         Mota = @MoTa,
         HinhAnh = @HinhAnh,
-        NgaySanXuat = @NgaySanXuat
+        NgaySanXuat = @NgaySanXuat,
+		DonViTinh = @DonViTinh
     WHERE MaSP = @MaSP;
 END;
 --Xóa Sản Phẩm
@@ -250,7 +256,7 @@ BEGIN
 END
 ---------------------------------------------
 --lấy ra sản phẩm có nhiều lượt xem nhất
-CREATE PROCEDURE sp_get_top_view_sanpham
+Alter PROCEDURE sp_get_top_view_sanpham
     @Limit INT
 AS
 BEGIN
@@ -260,7 +266,8 @@ BEGIN
         sp.LuotXem,
         sp.Gia,
         sp.Mota,
-        sp.HinhAnh
+        sp.HinhAnh,
+		sp.DonViTinh
     FROM
         SanPhams sp
     ORDER BY
@@ -275,6 +282,39 @@ BEGIN
     ORDER BY NgaySanXuat DESC;
 END
 ---------------------------------------------------------
+ALTER PROCEDURE GetNewProducts
+AS
+BEGIN
+    SELECT TOP 4
+        sp.MaSP,
+        sp.TenSP,
+		sp.HinhAnh,
+		sp.Gia,
+        sp.NgaySanXuat,
+		sp.DonViTinh
+    FROM SanPhams sp
+    WHERE sp.NgaySanXuat = (SELECT MAX(NgaySanXuat) FROM SanPhams)
+    ORDER BY sp.NgaySanXuat DESC;
+END
+EXEC GetNewProducts;
+------------------------------------------------------------
+ALTER PROCEDURE sp_SanPhamBestSale
+AS
+BEGIN
+    SELECT TOP 4
+        SP.MaSP,
+        SP.TenSP,
+        SP.Gia AS Gia,
+        SP.HinhAnh AS HinhAnh,
+        SP.DonViTinh AS DonViTinh,
+        SUM(CTDH.SoLuong) AS SoLuong -- Thêm cột SoLuong từ bảng ChiTietDonHangs
+    FROM SanPhams AS SP
+    INNER JOIN ChiTietDonHangs AS CTDH ON SP.MaSP = CTDH.MaSP
+    INNER JOIN DonHangs AS DH ON CTDH.MaDonHang = DH.MaDonHang
+    GROUP BY SP.MaSP, SP.TenSP, SP.Gia, SP.HinhAnh, SP.DonViTinh
+    ORDER BY SUM(CTDH.SoLuong) DESC; -- Cập nhật SUM(CTDH.SoLuong) để tính tổng số lượng từ bảng ChiTietDonHangs
+END;
+EXEC sp_SanPhamBestSale;
 -- Thủ tục sửa lỗi
 CREATE PROCEDURE sp_sanpham_search
     @page_index INT,
@@ -357,6 +397,16 @@ BEGIN
         DROP TABLE #Temp2;
     END;
 END;
+-- Tạo stored procedure để lấy sản phẩm liên quan dựa vào mã danh mục
+ALTER PROCEDURE sp_SanPhamLienQuan
+    @MaDanhMuc INT
+AS
+BEGIN
+    SELECT TOP 4 *
+    FROM SanPhams
+    WHERE MaDanhMuc = @MaDanhMuc;
+END
+EXEC sp_SanPhamLienQuan @MaDanhMuc = 1;
 -----------------------------------
 --Danh Mục
 create proc sp_getall_danhmuc
@@ -407,6 +457,17 @@ BEGIN
     FROM DanhMucs
     WHERE MaDanhMuc = @MaDanhMuc;
 END;
+ALTER PROCEDURE sp_get_SanPhamByDanhMucID
+(
+    @MaDanhMuc INT
+)
+AS
+BEGIN
+    SELECT TOP 4 *
+    FROM SanPhams
+    WHERE MaDanhMuc = @MaDanhMuc;
+END;
+EXEC sp_get_SanPhamByDanhMucID '1'
 ---------------------------------------
 --Nhà cung cấp
 create proc sp_getall_nhacungcap
@@ -526,14 +587,21 @@ BEGIN
     SELECT * FROM TinTucs;
 END;
 ----------------------------------------
+CREATE PROCEDURE sp_layraTinTucNews
+AS
+BEGIN
+    SELECT TOP 3 * 
+    FROM TinTucs
+    ORDER BY NgayDang DESC;
+END;
+----------------------------------------
 -- Đơn hàng
 -- Tạo stored procedure để chèn dữ liệu vào bảng DonHangs và ChiTietDonHangs
-CREATE PROCEDURE sp_create_donhang
+Alter PROCEDURE sp_create_donhang
     @MaKH INT,
     @MaTrangThai INT,
     @MaPhuongThuc INT,
     @NgayDatHang DATETIME,
-    @SoLuong INT,
     @DiaChiGiaoHang NVARCHAR(200),
     @list_json_chitiet_dh NVARCHAR(MAX)
 AS
@@ -541,8 +609,8 @@ BEGIN
     DECLARE @MaDonHang INT;
 
     -- Chèn thông tin đơn hàng vào bảng DonHangs
-    INSERT INTO DonHangs (MaKH, MaTrangThai, MaPhuongThuc, NgayDatHang, SoLuong, DiaChiGiaoHang)
-    VALUES (@MaKH, @MaTrangThai, @MaPhuongThuc, @NgayDatHang, @SoLuong, @DiaChiGiaoHang);
+    INSERT INTO DonHangs (MaKH, MaTrangThai, MaPhuongThuc, NgayDatHang, DiaChiGiaoHang)
+    VALUES (@MaKH, @MaTrangThai, @MaPhuongThuc, @NgayDatHang, @DiaChiGiaoHang);
 
     -- Lấy mã đơn hàng vừa chèn
     SET @MaDonHang = SCOPE_IDENTITY();
@@ -551,24 +619,23 @@ BEGIN
     IF (@list_json_chitiet_dh IS NOT NULL)
     BEGIN
         -- Chèn thông tin chi tiết đơn hàng vào bảng ChiTietDonHangs từ chuỗi JSON
-        INSERT INTO ChiTietDonHangs (MaDonHang, MaSP, TongGia, MaGiamGia)
+        INSERT INTO ChiTietDonHangs (MaDonHang, MaSP, TongGia, MaGiamGia, SoLuong)
         SELECT @MaDonHang,
                JSON_VALUE(y.value, '$.maSP'),
                JSON_VALUE(y.value, '$.tongGia'),
-               JSON_VALUE(y.value, '$.maGiamGia')
+               JSON_VALUE(y.value, '$.maGiamGia'),
+               JSON_VALUE(y.value, '$.soLuong')
         FROM OPENJSON(@list_json_chitiet_dh) AS y;
     END;
 END;
-
 -- cập nhật đơn hàng
 -- Tạo stored procedure để cập nhật dữ liệu trong bảng DonHangs và ChiTietDonHangs
-CREATE PROCEDURE sp_update_donhang
+ALter PROCEDURE sp_update_donhang
     @MaDonHang INT,
     @MaKH INT,
     @MaTrangThai INT,
     @MaPhuongThuc INT,
     @NgayDatHang DATETIME,
-    @SoLuong INT,
     @DiaChiGiaoHang NVARCHAR(200),
     @list_json_chitiet_dh NVARCHAR(MAX)
 AS
@@ -579,7 +646,6 @@ BEGIN
         MaTrangThai = @MaTrangThai,
         MaPhuongThuc = @MaPhuongThuc,
         NgayDatHang = @NgayDatHang,
-        SoLuong = @SoLuong,
         DiaChiGiaoHang = @DiaChiGiaoHang
     WHERE MaDonHang = @MaDonHang;
 
@@ -590,11 +656,12 @@ BEGIN
     IF (@list_json_chitiet_dh IS NOT NULL)
     BEGIN
         -- Chèn thông tin chi tiết đơn hàng vào bảng ChiTietDonHangs từ chuỗi JSON
-        INSERT INTO ChiTietDonHangs (MaDonHang, MaSP, TongGia, MaGiamGia)
+        INSERT INTO ChiTietDonHangs (MaDonHang, MaSP, TongGia, MaGiamGia, SoLuong)
         SELECT @MaDonHang,
                JSON_VALUE(y.value, '$.maSP'),
                JSON_VALUE(y.value, '$.tongGia'),
-               JSON_VALUE(y.value, '$.maGiamGia')
+               JSON_VALUE(y.value, '$.maGiamGia'),
+               JSON_VALUE(y.value, '$.soLuong')
         FROM OPENJSON(@list_json_chitiet_dh) AS y;
     END;
 END;
@@ -621,7 +688,7 @@ BEGIN
     WHERE D.MaDonHang = @MaDonHang;
 END
 -- lấy ra tất cả đơn hàng
-CREATE PROCEDURE sp_getall_donhang
+Alter PROCEDURE sp_getall_donhang
 AS
 BEGIN
     SELECT
@@ -630,7 +697,7 @@ BEGIN
         DH.MaTrangThai,
         DH.MaPhuongThuc,
         DH.NgayDatHang,
-        DH.SoLuong,
+        CTDH.SoLuong, -- Thêm cột SoLuong từ bảng ChiTietDonHangs
         DH.DiaChiGiaoHang,
         KH.TenKH,
         TTTD.TenTrangThai,
@@ -638,8 +705,10 @@ BEGIN
     FROM DonHangs DH
     INNER JOIN KhachHangs KH ON DH.MaKH = KH.MaKH
     INNER JOIN TrangThaiDonHangs TTTD ON DH.MaTrangThai = TTTD.MaTrangThai
-    INNER JOIN PhuongThucThanhToan PTTT ON DH.MaPhuongThuc = PTTT.MaPhuongThuc;
+    INNER JOIN PhuongThucThanhToan PTTT ON DH.MaPhuongThuc = PTTT.MaPhuongThuc
+    LEFT JOIN ChiTietDonHangs CTDH ON DH.MaDonHang = CTDH.MaDonHang; -- Thực hiện LEFT JOIN với bảng ChiTietDonHangs
 END;
+
 --
 CREATE PROCEDURE sp_getall_trangthai_donhang
 AS
@@ -651,3 +720,463 @@ AS
 BEGIN
     SELECT * FROM PhuongThucThanhToan;
 END
+
+---------------------------------------------------------------------
+-- Hóa đơn nhập
+CREATE PROCEDURE sp_create_hoadonnhap
+    @MaNhaCC INT,
+    @NgayNhap DATETIME,
+    @GhiChu NVARCHAR(MAX),
+    @list_json_chitiet_hdnhap NVARCHAR(MAX)
+AS
+BEGIN
+    DECLARE @MaHDNhap INT;
+
+    -- Chèn thông tin hóa đơn nhập vào bảng HoaDonNhaps
+    INSERT INTO HoaDonNhaps (MaNhaCC, NgayNhap, GhiChu)
+    VALUES (@MaNhaCC, @NgayNhap, @GhiChu);
+
+    -- Lấy mã hóa đơn nhập vừa chèn
+    SET @MaHDNhap = SCOPE_IDENTITY();
+
+    -- Kiểm tra xem danh sách chi tiết hóa đơn nhập có giá trị không rỗng
+    IF (@list_json_chitiet_hdnhap IS NOT NULL)
+    BEGIN
+        -- Chèn thông tin chi tiết hóa đơn nhập vào bảng ChiTietHoaDonNhaps từ chuỗi JSON
+        INSERT INTO ChiTietHoaDonNhaps (MaHDNhap, MaSP, SoLuong, DonGia, TongTien)
+        SELECT @MaHDNhap,
+               JSON_VALUE(y.value, '$.maSP'),
+               JSON_VALUE(y.value, '$.soLuong'),
+               JSON_VALUE(y.value, '$.donGia'),
+               JSON_VALUE(y.value, '$.tongTien')
+        FROM OPENJSON(@list_json_chitiet_hdnhap) AS y;
+    END;
+END;
+-- sửa hóa đơn nhập
+ALTER PROCEDURE sp_update_hoadonnhap
+    @MaHDNhap INT,
+    @MaNhaCC INT,
+    @NgayNhap DATETIME,
+    @GhiChu NVARCHAR(MAX),
+    @list_json_chitiet_hdnhap NVARCHAR(MAX)
+AS
+BEGIN
+    -- Cập nhật thông tin hóa đơn nhập trong bảng HoaDonNhaps
+    UPDATE HoaDonNhaps
+    SET MaNhaCC = @MaNhaCC,
+        NgayNhap = @NgayNhap,
+        GhiChu = @GhiChu
+    WHERE MaHDNhap = @MaHDNhap;
+
+    -- Xóa các chi tiết hóa đơn nhập cũ trước khi thêm các chi tiết mới
+    DELETE FROM ChiTietHoaDonNhaps WHERE MaHDNhap = @MaHDNhap;
+
+    -- Kiểm tra xem danh sách chi tiết hóa đơn nhập có giá trị không rỗng
+    IF (@list_json_chitiet_hdnhap IS NOT NULL)
+    BEGIN
+        -- Chèn thông tin chi tiết hóa đơn nhập vào bảng ChiTietHoaDonNhaps từ chuỗi JSON
+        INSERT INTO ChiTietHoaDonNhaps (MaHDNhap, MaSP, SoLuong, DonGia, TongTien)
+        SELECT @MaHDNhap,
+               JSON_VALUE(y.value, '$.maSP'),
+               JSON_VALUE(y.value, '$.soLuong'),
+               JSON_VALUE(y.value, '$.donGia'),
+               JSON_VALUE(y.value, '$.tongTien')
+        FROM OPENJSON(@list_json_chitiet_hdnhap) AS y;
+    END;
+END;
+-- xóa hóa đơn nhập
+CREATE PROCEDURE sp_delete_hoadonnhap
+(
+    @MaHDNhap INT
+)
+AS
+BEGIN
+    DELETE FROM ChiTietHoaDonNhaps WHERE MaHDNhap = @MaHDNhap;
+
+    DELETE FROM HoaDonNhaps WHERE MaHDNhap = @MaHDNhap;
+END;
+-- get id hóa đơn nhập
+CREATE PROCEDURE GetHoaDonNhapByID
+    @MaHDNhap INT
+AS
+BEGIN
+    SELECT H.*, CN.*
+    FROM HoaDonNhaps AS H
+    LEFT JOIN ChiTietHoaDonNhaps AS CN ON H.MaHDNhap = CN.MaHDNhap
+    WHERE H.MaHDNhap = @MaHDNhap;
+END;
+-- lấy ra tất cả hóa đơn nhập
+Alter PROCEDURE sp_getall_hoadonnhap
+AS
+BEGIN
+    SELECT
+        HDN.MaHDNhap,
+        HDN.MaNhaCC,
+        HDN.NgayNhap,
+        HDN.GhiChu,
+        NCC.TenNhaCC,
+        CTHDN.MaSP,  -- Mã sản phẩm trong chi tiết hóa đơn nhập
+        SP.TenSP,  -- Tên sản phẩm
+        CTHDN.SoLuong,  -- Số lượng
+        CTHDN.DonGia,   -- Đơn giá
+        CTHDN.TongTien  -- Tổng tiền
+    FROM HoaDonNhaps HDN
+    INNER JOIN NhaCungCaps NCC ON HDN.MaNhaCC = NCC.MaNhaCC
+    INNER JOIN ChiTietHoaDonNhaps CTHDN ON HDN.MaHDNhap = CTHDN.MaHDNhap
+    INNER JOIN SanPhams SP ON CTHDN.MaSP = SP.MaSP;
+END;
+
+-- Tạo stored procedure để thêm đơn hàng
+CREATE PROCEDURE sp_AddOrder
+    @TenKH NVARCHAR(100),
+    @SDT NVARCHAR(12),
+    @DiaChi NVARCHAR(200),
+    @Email NVARCHAR(100),
+    @OrderDetailsList NVARCHAR(MAX)
+AS
+BEGIN
+    -- Bắt đầu giao dịch
+    BEGIN TRANSACTION;
+
+    -- Khai báo biến
+    DECLARE @OrderID INT;
+
+    -- Thêm thông tin khách hàng vào bảng KhachHangs
+    INSERT INTO KhachHangs (TenKH, SDT, DiaChi, Email)
+    VALUES (@TenKH, @SDT, @DiaChi, @Email);
+
+    -- Lấy OrderID sau khi thêm khách hàng
+    SET @OrderID = SCOPE_IDENTITY();
+
+    -- Chuyển chuỗi JSON thành bảng tạm thời
+    DECLARE @TempOrderDetails TABLE (
+        ProductID INT,
+        Quantity INT,
+        Price INT
+    );
+
+    INSERT INTO @TempOrderDetails (ProductID, Quantity, Price)
+    SELECT [ProductID], [Quantity], [Price]
+    FROM OPENJSON(@OrderDetailsList)
+    WITH (
+        ProductID INT '$.ProductID',
+        Quantity INT '$.Quantity',
+        Price INT '$.Price'
+    );
+
+    -- Thêm chi tiết đơn hàng vào bảng ChiTietDonHangs
+    INSERT INTO ChiTietDonHangs (MaDonHang, MaSP, TongGia, SoLuong, MaGiamGia)
+    SELECT @OrderID, ProductID, Price, Quantity, NULL
+    FROM @TempOrderDetails;
+
+    -- COMMIT giao dịch nếu thành công
+    COMMIT;
+
+    -- Trả về OrderID của đơn hàng mới được tạo
+    SELECT @OrderID AS NewOrderID;
+
+END
+select * from KhachHangs
+Alter PROCEDURE sp_getspdanhmuc_traicay
+AS
+BEGIN
+    SELECT SanPhams.MaSP, SanPhams.TenSP, SanPhams.Gia, SanPhams.Mota, SanPhams.HinhAnh
+    FROM SanPhams
+    INNER JOIN DanhMucs ON SanPhams.MaDanhMuc = DanhMucs.MaDanhMuc
+    WHERE DanhMucs.TenDanhMuc = N'Trái cây - Rau củ quả'
+END;
+
+EXEC sp_getspdanhmuc_traicay;
+
+ALTER PROCEDURE sp_sortSanPhamAZTraiCayRauCuQua
+AS
+BEGIN
+    SELECT SanPhams.MaSP, SanPhams.TenSP, SanPhams.Gia, SanPhams.Mota, SanPhams.HinhAnh
+    FROM SanPhams
+    INNER JOIN DanhMucs ON SanPhams.MaDanhMuc = DanhMucs.MaDanhMuc
+    WHERE DanhMucs.TenDanhMuc = N'Trái cây - Rau củ quả'
+    ORDER BY SanPhams.TenSP ASC;
+END;
+exec sp_sortSanPhamAZTraiCayRauCuQua;
+
+CREATE PROCEDURE sp_sortSanPhamZATraiCayRauCuQua
+AS
+BEGIN
+    SELECT SanPhams.MaSP, SanPhams.TenSP, SanPhams.Gia, SanPhams.Mota, SanPhams.HinhAnh
+    FROM SanPhams
+    INNER JOIN DanhMucs ON SanPhams.MaDanhMuc = DanhMucs.MaDanhMuc
+    WHERE DanhMucs.TenDanhMuc = N'Trái cây - Rau củ quả'
+    ORDER BY SanPhams.TenSP DESC;
+END;
+exec sp_sortSanPhamZATraiCayRauCuQua;
+
+CREATE PROCEDURE sp_sortSanPhamPriceAscTraiCay
+AS
+BEGIN
+    SELECT SanPhams.MaSP, SanPhams.TenSP, SanPhams.Gia, SanPhams.Mota, SanPhams.HinhAnh
+    FROM SanPhams
+    INNER JOIN DanhMucs ON SanPhams.MaDanhMuc = DanhMucs.MaDanhMuc
+    WHERE DanhMucs.TenDanhMuc = N'Trái cây - Rau củ quả'
+    ORDER BY SanPhams.Gia ASC;
+END;
+
+EXEC sp_sortSanPhamPriceAscTraiCayRauCuQua;
+
+CREATE PROCEDURE sp_sortSanPhamPriceDescTraiCay
+AS
+BEGIN
+    SELECT SanPhams.MaSP, SanPhams.TenSP, SanPhams.Gia, SanPhams.Mota, SanPhams.HinhAnh
+    FROM SanPhams
+    INNER JOIN DanhMucs ON SanPhams.MaDanhMuc = DanhMucs.MaDanhMuc
+    WHERE DanhMucs.TenDanhMuc = N'Trái cây - Rau củ quả'
+    ORDER BY SanPhams.Gia DESC;
+END;
+
+EXEC sp_sortSanPhamPriceDescTraiCayRauCuQua;
+
+
+ALTER PROCEDURE sp_searchSanPhamTraiCay
+    @TimKiem NVARCHAR(500)
+AS
+BEGIN
+    SELECT SanPhams.*
+    FROM SanPhams
+    INNER JOIN DanhMucs ON SanPhams.MaDanhMuc = DanhMucs.MaDanhMuc
+    WHERE DanhMucs.TenDanhMuc = N'Trái cây - Rau củ quả' AND (SanPhams.TenSP LIKE '%' + @TimKiem + '%' OR CAST(SanPhams.MaSP AS NVARCHAR(50)) LIKE '%' + @TimKiem + '%')
+END;
+EXEC sp_searchSanPhamTraiCay @TimKiem = N'1';
+
+-- CREATE PROCEDURE: sp_create_account
+ALTER PROCEDURE sp_create_account
+    @tenDangNhap NVARCHAR(100),
+    @matKhau NVARCHAR(30),
+    @email NVARCHAR(255),
+    @vaiTroId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (SELECT 1 FROM dbo.NguoiDungs WHERE TenDangNhap = @tenDangNhap)
+    BEGIN
+        SELECT 'Tên đăng nhập đã tồn tại.' AS ErrorMessage;
+        RETURN;
+    END
+    INSERT INTO NguoiDungs (TenDangNhap, MatKhau, VaiTro_Id, Email)
+    VALUES (@tenDangNhap, @matKhau, @vaiTroId, @email);
+END
+EXEC sp_create_account
+    @tenDangNhap = 'user1',
+    @matKhau = '1',
+    @email = 'newuser@example.com',
+    @vaiTroId = 2; 
+
+
+ALTER PROCEDURE sp_create_order
+    @TenKH NVARCHAR(100),
+    @SDT NVARCHAR(12),
+    @Email NVARCHAR(100),
+    @DiaChi NVARCHAR(100),
+    @list_json_dh NVARCHAR(MAX),
+    @list_json_chitiet_dh NVARCHAR(MAX)
+AS
+BEGIN
+    BEGIN TRY
+        -- Chèn thông tin khách hàng vào bảng KhachHangs
+        INSERT INTO KhachHangs (TenKH, SDT, Email, DiaChi)
+        VALUES (@TenKH, @SDT, @Email, @DiaChi);
+
+        -- Lấy mã khách hàng vừa chèn
+        DECLARE @MaKH INT = SCOPE_IDENTITY();
+
+        -- Chèn thông tin đơn hàng từ chuỗi JSON vào bảng DonHangs
+		if(@list_json_dh is not null )
+		begin
+			INSERT INTO DonHangs (MaKH, MaPhuongThuc, NgayDatHang, DiaChiGiaoHang, MaTrangThai)
+			SELECT @MaKH,
+          JSON_VALUE(y.value, '$.maPhuongThuc'),
+          JSON_VALUE(y.value, '$.ngayDatHang'),
+          JSON_VALUE(y.value, '$.diaChiGiaoHang'),
+          JSON_VALUE(y.value, '$.maTrangThai')
+		  FROM OPENJSON(@list_json_dh) as y;
+		end
+        
+
+        -- Lấy mã đơn hàng vừa chèn
+        DECLARE @MaDonHang INT = SCOPE_IDENTITY();
+
+        -- Chèn thông tin chi tiết đơn hàng từ chuỗi JSON vào bảng ChiTietDonHangs
+		if(@list_json_dh is not null )
+		begin
+		INSERT INTO ChiTietDonHangs (MaDonHang, MaSP, TongGia, SoLuong,MaGiamGia)
+        SELECT @MaDonHang,
+            JSON_VALUE(x.value, '$.maSP'),
+            JSON_VALUE(x.value, '$.tongGia'),
+            JSON_VALUE(x.value, '$.soLuong'),
+			JSON_VALUE(x.value, '$.maGiamGia')
+			FROM OPENJSON(@list_json_chitiet_dh) as x;
+		end
+
+        
+    END TRY
+    BEGIN CATCH
+
+        PRINT ERROR_MESSAGE();
+    END CATCH;
+END;
+
+select * from KhachHangs
+select * from DonHangs
+select * from ChiTietDonHangs
+
+
+select * from KhachHangs
+DECLARE @TenKH NVARCHAR(100) = N'Tên Khách Ok';
+DECLARE @SDT NVARCHAR(12) = 'Số Điện Thoại';
+DECLARE @Email NVARCHAR(100) = 'Email';
+DECLARE @DiaChi NVARCHAR(100) = 'diachi';
+DECLARE @list_json_dh NVARCHAR(MAX) = N'{"maPhuongThuc": 1,"maTrangThai": 1, "ngayDatHang": "2023-11-19T02:24:50.580Z", "diaChiGiaoHang": "Địa Chỉ Giao Hàng"}';
+DECLARE @list_json_chitiet_dh NVARCHAR(MAX) = N'{"maSP": 2, "tongGia": 1000, "soLuong": 5,"maGiamGia": "MGGG" }';
+
+
+-- Thực hiện gọi stored procedure
+EXEC sp_create_order
+    @TenKH= N'Tên Khách Ok',
+    @SDT= 'Số Thoại',
+    @Email= 'Email',
+    @DiaChi= 'diachi',
+    @list_json_dh= N'[{"maPhuongThuc": 1,"maTrangThai": 1, "ngayDatHang": "2023-11-19T02:24:50.580Z", "diaChiGiaoHang": "Địa Chỉ Giao Hàng"}]',
+    @list_json_chitiet_dh= N'[{"maSP": 2, "tongGia": 1000, "soLuong": 5,"maGiamGia": "11" }]'
+
+ALTER PROCEDURE sp_getall_donhang_user
+AS
+BEGIN
+    SELECT TOP 1
+        KH.MaKH,
+        KH.TenKH,
+        KH.SDT,
+        KH.Email,
+        KH.DiaChi,
+		DH.MaDonHang,
+        DH.MaPhuongThuc,
+        DH.MaTrangThai,
+        DH.NgayDatHang,
+        PT.TenPhuongThuc,
+        DH.DiaChiGiaoHang,
+        SP.TenSP,
+        CTDH.TongGia,
+        CTDH.SoLuong,
+        CTDH.MaGiamGia
+    FROM
+        DonHangs DH
+    INNER JOIN KhachHangs KH ON DH.MaKH = KH.MaKH
+    INNER JOIN PhuongThucThanhToan PT ON DH.MaPhuongThuc = PT.MaPhuongThuc
+    INNER JOIN ChiTietDonHangs CTDH ON DH.MaDonHang = CTDH.MaDonHang
+    INNER JOIN SanPhams SP ON CTDH.MaSP = SP.MaSP
+    ORDER BY
+        DH.NgayDatHang DESC;
+END;
+
+exec sp_getall_donhang_user
+
+CREATE PROCEDURE GetSanPhamByInfo
+    @TenDanhMuc NVARCHAR(100) = NULL,
+    @TenNhaCC NVARCHAR(250) = NULL,
+    @TenSanPham NVARCHAR(500) = NULL
+AS
+BEGIN
+    IF @TenDanhMuc IS NOT NULL
+    BEGIN
+        SELECT 
+            SP.*
+        FROM 
+            SanPhams SP
+        JOIN 
+            DanhMucs DM ON SP.MaDanhMuc = DM.MaDanhMuc
+        WHERE 
+            DM.TenDanhMuc = @TenDanhMuc;
+    END
+    ELSE IF @TenNhaCC IS NOT NULL
+    BEGIN
+        SELECT 
+            SP.*
+        FROM 
+            SanPhams SP
+        JOIN 
+            NhaCungCaps NCC ON SP.MaNhaCC = NCC.MaNhaCC
+        WHERE 
+            NCC.TenNhaCC = @TenNhaCC;
+    END
+    ELSE IF @TenSanPham IS NOT NULL
+    BEGIN
+        SELECT 
+            *
+        FROM 
+            SanPhams
+        WHERE 
+            TenSP = @TenSanPham;
+    END
+    ELSE
+    BEGIN
+        PRINT 'Vui lòng nhập thông tin danh mục, nhà cung cấp hoặc tên sản phẩm.';
+    END
+END
+
+
+ALTER PROCEDURE ThongKeDoanhThu
+    @NgayBatDau DATETIME,
+    @NgayKetThuc DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        N'Tổng' AS Ngay,
+        COUNT(DISTINCT DH.MaDonHang) AS SoDonHang,
+        SUM(CTDH.TongGia) AS DoanhThu
+    FROM 
+        DonHangs DH
+        INNER JOIN ChiTietDonHangs CTDH ON DH.MaDonHang = CTDH.MaDonHang
+    WHERE 
+        DH.NgayDatHang BETWEEN @NgayBatDau AND @NgayKetThuc;
+END;
+
+EXEC ThongKeDoanhThu '2023-11-1', '2023-11-29';
+
+select * from DonHangs
+
+ALTER PROCEDURE GetDonHangByTrangThai
+    @TrangThai int
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        DH.MaDonHang,
+        KH.TenKH,
+        DH.NgayDatHang,
+        DH.DiaChiGiaoHang,
+        CTDH.MaSP,
+        CTDH.SoLuong,
+        CTDH.TongGia,
+        TT.MaTrangThai
+    FROM 
+        DonHangs DH
+        INNER JOIN KhachHangs KH ON DH.MaKH = KH.MaKH
+        INNER JOIN TrangThaiDonHangs TT ON DH.MaTrangThai = TT.MaTrangThai
+        INNER JOIN ChiTietDonHangs CTDH ON DH.MaDonHang = CTDH.MaDonHang
+    WHERE 
+        TT.MaTrangThai = @TrangThai;
+END;
+
+EXEC GetDonHangByTrangThai @TrangThai = 1;
+
+-- Tạo stored procedure
+CREATE PROCEDURE sp_layrasanpham_saphet
+AS
+BEGIN
+    SELECT Kho.MaKho, SanPhams.TenSP, Kho.SoLuong
+    FROM Kho
+    JOIN SanPhams ON Kho.MaSP = SanPhams.MaSP;
+END;
+
+-- Thực thi stored procedure
+EXEC sp_layrasanpham_saphet

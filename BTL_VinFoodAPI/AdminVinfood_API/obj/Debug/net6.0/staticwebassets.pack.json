@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\VM12vinffood-ca-nuc_527b782de2124d4c9bfd4a87d4a097ae_large.jpg",
+      "PackagePath": "staticwebassets\\images\\Product\\VM12vinffood-ca-nuc_527b782de2124d4c9bfd4a87d4a097ae_large.jpg"
+    },
+    {
+      "Id": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\cauvang-1654247842-9403-1654247849.jpg",
+      "PackagePath": "staticwebassets\\images\\Product\\cauvang-1654247842-9403-1654247849.jpg"
+    },
+    {
+      "Id": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\vinffood-cam-sanh_c71e3a0906ba411d96fc8bad605c5661_large.jpg",
+      "PackagePath": "staticwebassets\\images\\Product\\vinffood-cam-sanh_c71e3a0906ba411d96fc8bad605c5661_large.jpg"
+    },
+    {
+      "Id": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\AdminVinfood_API\\wwwroot\\images\\Product\\vinffood-dau-eloasis-250g_3395e28af0fb4e27a57d66b82e6a1623_large.jpg",
+      "PackagePath": "staticwebassets\\images\\Product\\vinffood-dau-eloasis-250g_3395e28af0fb4e27a57d66b82e6a1623_large.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.AdminVinfood_API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.AdminVinfood_API.props",
+      "PackagePath": "build\\AdminVinfood_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.AdminVinfood_API.props",
+      "PackagePath": "buildMultiTargeting\\AdminVinfood_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.AdminVinfood_API.props",
+      "PackagePath": "buildTransitive\\AdminVinfood_API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

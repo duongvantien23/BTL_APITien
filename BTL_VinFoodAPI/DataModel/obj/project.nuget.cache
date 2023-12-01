@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "M2p0VIIJ0dmDoqUuz13TCnJIHWDNBLyVxxn7JxDJyOsVnNlTU7WDZRIYOV8aknCqe7bXW3CtrBl1S6Z0XdHXoQ==",
+  "success": true,
+  "projectFilePath": "D:\\BTL_PTHDV_ASP\\BAITAPLON_API\\BTL_VinFoodAPI\\DataModel\\DataModel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\84399\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\84399\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\84399\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\84399\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
